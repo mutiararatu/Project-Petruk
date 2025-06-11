@@ -104,3 +104,38 @@ apotek.tambahObat(nama, keywords, stok, harga);
 cout << "Obat ke-" << i+1  << "berhasil ditambahkan.\n";
 }
 }
+int main() {
+    Apotek apotek;
+    int pilihan;
+
+    do {
+        cout << "\n=== SISTEM APOTEK NAMK ===\n";
+        cout << "1. Tambah 1 Obat\n";
+        cout << "2. Tambah Banyak Obat Sekaligus\n";
+        cout << "3. Lihat Daftar Obat\n";
+        cout << "4. Rekomendasi Obat Berdasarkan Keluhan\n";
+        cout << "0. Keluar\n";
+        cout << "Pilih: ";
+        cin >> pilihan;
+        cin.ignore();
+
+        if (pilihan == 1) {
+            char nama[50];
+            string keywordInput;
+            int stok;
+            float harga;
+
+            inputCString(nama, 50, "Masukkan nama obat: ");
+            cout << "Masukkan kata kunci keluhan (pisah dengan spasi): ";
+            getline(cin, keywordInput);
+            vector<string> keywords = pecahKeyword(keywordInput);
+
+            cout << "Masukkan stok obat: ";
+            cin >> stok;
+            cout << "Masukkan harga obat: ";
+            cin >> harga;
+            cin.ignore();
+
+            apotek.tambahObat(nama, keywords, stok, harga);
+            cout << "Obat berhasil ditambahkan.\n";
+      
